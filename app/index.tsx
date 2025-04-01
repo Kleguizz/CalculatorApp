@@ -13,8 +13,12 @@ const CalculatorApp = () => {
     clean,
     toggleSign,
     deleteLast,
-
     divideOperation,
+    multiplyOperation,
+    subtrackOperation,
+    addOperation,
+    calculateSubResult,
+    calculateResult,
   } = useCalculator();
 
   return (
@@ -64,7 +68,7 @@ const CalculatorApp = () => {
         <CalculatorButton
           label="x"
           color={Colors.orange}
-          onPress={() => console.log("x")}
+          onPress={multiplyOperation}
         />
       </View>
 
@@ -75,7 +79,7 @@ const CalculatorApp = () => {
         <CalculatorButton
           label="-"
           color={Colors.orange}
-          onPress={() => console.log("-")}
+          onPress={subtrackOperation}
         />
       </View>
 
@@ -86,7 +90,7 @@ const CalculatorApp = () => {
         <CalculatorButton
           label="+"
           color={Colors.orange}
-          onPress={() => console.log("+")}
+          onPress={addOperation}
         />
       </View>
       <View style={globalStyles.row}>
@@ -100,7 +104,7 @@ const CalculatorApp = () => {
         <CalculatorButton
           label="="
           color={Colors.orange}
-          onPress={() => console.log("=")}
+          onPress={calculateResult}
         />
       </View>
     </View>
