@@ -2,7 +2,7 @@ import { useEffect, useRef, useState } from "react";
 
 enum Operator {
   add = "+",
-  subtrack = "-",
+  subtract = "-",
   multiply = "x",
   divide = "÷",
 }
@@ -18,7 +18,7 @@ export const useCalculator = () => {
 
   useEffect(() => {
     if (lastOperation.current) {
-      const firstFormulaPart = formula.split("").at(0);
+      const firstFormulaPart = formula.split(" ").at(0);
       setFormula(`${firstFormulaPart} ${lastOperation.current} ${number}`);
     } else {
       setFormula(number);
@@ -64,9 +64,11 @@ export const useCalculator = () => {
   const setLastNumber = () => {
     //Calcular el resultado
     calculateResult();
+
     if (number.endsWith(".")) {
       setPrevNumber(number.slice(0, -1));
     }
+
     setPrevNumber(number);
     setNumber("0");
   };
@@ -81,9 +83,9 @@ export const useCalculator = () => {
     lastOperation.current = Operator.add;
   };
 
-  const subtrackOperation = () => {
+  const subtractOperation = () => {
     setLastNumber();
-    lastOperation.current = Operator.subtrack;
+    lastOperation.current = Operator.subtract;
   };
 
   const multiplyOperation = () => {
@@ -103,7 +105,7 @@ export const useCalculator = () => {
       case Operator.add:
         return num1 + num2;
 
-      case Operator.subtrack:
+      case Operator.subtract:
         return num1 - num2;
 
       case Operator.multiply:
@@ -165,7 +167,7 @@ export const useCalculator = () => {
     deleteLast,
     divideOperation,
     multiplyOperation,
-    subtrackOperation,
+    subtractOperation,
     addOperation,
     calculateSubResult,
     calculateResult,

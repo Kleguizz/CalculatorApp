@@ -1,5 +1,5 @@
 import { globalStyles } from "@/styles/global-styles";
-import { LogBox, View } from "react-native";
+import { View } from "react-native";
 import ThemeText from "./components/ThemeText";
 import CalculatorButton from "./components/CalculatorButton";
 import { Colors } from "@/constants/Colors";
@@ -15,7 +15,7 @@ const CalculatorApp = () => {
     deleteLast,
     divideOperation,
     multiplyOperation,
-    subtrackOperation,
+    subtractOperation,
     addOperation,
     calculateSubResult,
     calculateResult,
@@ -79,7 +79,7 @@ const CalculatorApp = () => {
         <CalculatorButton
           label="-"
           color={Colors.orange}
-          onPress={subtrackOperation}
+          onPress={subtractOperation}
         />
       </View>
 
